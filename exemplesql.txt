@@ -1,0 +1,62 @@
+Exercitii Hackerrank
+
+1.
+
+SELECT *
+FROM CITY
+WHERE COUNTRYCODE = 'USA' AND POPULATION > 100000;
+
+2.
+
+SELECT NAME
+FROM CITY
+WHERE COUNTRYCODE = 'USA' AND POPULATION > 120000;
+
+3.
+
+select *
+from CITY
+
+4.
+
+SELECT *
+FROM CITY
+WHERE ID = 1661
+
+5.
+
+select *
+from CITY
+where COUNTRYCODE = "JPN";
+
+6.
+
+select name
+from CITY
+where countrycode = "JPN"
+
+7.
+
+select CITY, STATE
+from STATION
+
+8.
+
+select distinct(CITY)
+from STATION
+where (ID%2) = 0
+
+9.
+
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+
+10.
+
+select city, length(city) from station
+order by length(city),city asc
+limit 1;
+select city, length(city) from station
+order by length(city) desc
+limit 1;
+
+11. -----
