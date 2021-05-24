@@ -1,0 +1,92 @@
+Query-uri cu join-uri
+
+1.
+
+Table: Person
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| PersonId    | int     |
+| FirstName   | varchar |
+| LastName    | varchar |
++-------------+---------+
+PersonId is the primary key column for this table.
+Table: Address
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| AddressId   | int     |
+| PersonId    | int     |
+| City        | varchar |
+| State       | varchar |
++-------------+---------+
+AddressId is the primary key column for this table.
+ 
+
+Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:
+
+FirstName, LastName, City, State
+
+Rezolvare:
+
+select FirstName, LastName, City, State
+from Person left join Address
+on Person.PersonId = Address.PersonId;
+
+
+2.
+
+Enunt:
+
+Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+
+
+Rezolvare:
+
+SELECT SUM(CITY.POPULATION) 
+FROM CITY JOIN COUNTRY
+ON CITY.COUNTRYCODE = COUNTRY.CODE
+WHERE COUNTRY.CONTINENT = 'Asia';
+
+
+3.
+
+Enunt:
+
+Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+
+REZOLVARE:
+
+SELECT CITY.NAME
+FROM CITY JOIN COUNTRY
+ON CITY.CountryCode = COUNTRY.Code
+WHERE CONTINENT = "Africa";
+
+
+4.
+
+Enunt:
+
+Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+
+REZOLVARE: 
+
+select COUNTRY.CONTINENT, FLOOR(AVG(CITY.Population))
+FROM COUNTRY JOIN CITY
+ON CITY.CountryCode = COUNTRY.Code
+GROUP BY COUNTRY.CONTINENT;
+
+
+5.
+
