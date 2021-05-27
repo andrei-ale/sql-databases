@@ -87,6 +87,92 @@ FROM COUNTRY JOIN CITY
 ON CITY.CountryCode = COUNTRY.Code
 GROUP BY COUNTRY.CONTINENT;
 
+---------------------------------------------------------
 
-5.
+SAPTAMANA 2:
+
+1. 
+
+You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks.
+
+
+
+Grades contains the following data:
+
+
+
+Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+
+Write a query to help Eve.
+
+REZOLVARE:
+
+select if(grade < 8, NULL, name) , grade, marks
+from students join grades
+where marks between min_mark and max_mark
+order by grade desc, name, marks;
+
+W3RESOURCE - exercitii:
+
+1.
+
+Write a SQL statement to prepare a list with salesman name, customer name and their cities for the salesmen and customer who belongs to the same city.
+
+REZOLVARE:
+
+SELECT NAME, CUST_NAME, SALESMAN.CITY
+FROM SALESMAN JOIN CUSTOMER
+ON SALESMAN.SALESMAN_ID = CUSTOMER.SALESMAN_ID
+WHERE SALESMAN.CITY = CUSTOMER.CITY;
+
+(NU AM INTELES CEVA)!
+
+
+
+2.
+
+select ord_no, purch_amt, cust_name, city
+from orders, customer
+WHERE orders.customer_id=customer.customer_id and purch_amt between 500 and 2000;
+
+3.
+
+SELECT CUST_NAME, NAME
+FROM CUSTOMER, SALESMAN
+WHERE CUSTOMER.SALESMAN_ID = SALESMAN.SALESMAN_ID;
+
+4.
+
+SELECT CUST_NAME, NAME
+FROM CUSTOMER, SALESMAN
+WHERE CUSTOMER.SALESMAN_ID = SALESMAN.SALESMAN_ID
+AND COMMISSION > 0.12;
+
+5. 
+
+SELECT CUST_NAME, NAME
+FROM CUSTOMER JOIN SALESMAN
+ON CUSTOMER.SALESMAN_ID = SALESMAN.SALESMAN_ID
+WHERE CUSTOMER.CITY != SALESMAN.CITY AND COMMISSION > 0.12; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
