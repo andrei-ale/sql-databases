@@ -155,7 +155,18 @@ FROM CUSTOMER JOIN SALESMAN
 ON CUSTOMER.SALESMAN_ID = SALESMAN.SALESMAN_ID
 WHERE CUSTOMER.CITY != SALESMAN.CITY AND COMMISSION > 0.12; 
 
+6.
 
+SELECT ord_no, ord_date, purch_amt, cust_name, name, commission
+from orders join customer on orders.customer_id = customer.customer_id
+join salesman on customer.salesman_id = salesman.salesman_id;
+
+8.
+
+SELECT cust_name
+from customer left join salesman
+on customer.salesman_id = salesman.salesman_id
+order by cust_name;
 
 
 
