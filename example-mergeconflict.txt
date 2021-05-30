@@ -2,4 +2,5 @@ Continut fisier linia 1
 Continut fisier linia 2
 Continut fisier linia 3
 continut modificat 2
+Modificare adaugata
 Continut fisier linia 5
