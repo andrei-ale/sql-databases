@@ -225,6 +225,28 @@ ON customer.customer_id = orders.customer_id;
 
 INTREBARE - ??
 
+----------------------------------------------------
+----------------------------------------------------
+
+SUBQUERY:
+
+1.
+
+SELECT *
+FROM orders
+WHERE salesman_id = (SELECT salesman_id FROM salesman WHERE name = 'Paul Adam');
+
+2.
+
+SELECT *
+FROM orders
+WHERE salesman_id = (SELECT salesman_id FROM salesman WHERE city = 'London'); 
+
+3.
+
+SELECT * 
+FROM orders
+WHERE salesman_id = (SELECT salesman_id FROM orders WHERE customer_id = 3007);
 
 
 
