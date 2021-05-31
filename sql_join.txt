@@ -166,10 +166,64 @@ join salesman on customer.salesman_id = salesman.salesman_id;
 SELECT cust_name
 from customer left join salesman
 on customer.salesman_id = salesman.salesman_id
-order by cust_name;
+order by customer_id;
 
+9.
 
+SELECT cust_name
+from customer left join salesman
+on customer.salesman_id = salesman.salesman_id
+where grade < 300
+order by customer_id;
 
+10.
+
+SELECT cust_name, city, ord_no, ord_date, purch_amt
+FROM customer LEFT JOIN orders
+ON customer.customer_id = orders.customer_id
+ORDER BY ord_date asc;
+
+11. 
+
+SELECT cust_name, customer.city, ord_no, ord_date, purch_amt, name, commission
+FROM customer LEFT JOIN orders
+ON customer.customer_id= orders.customer_id
+LEFT JOIN salesman
+ON orders.salesman_id = salesman.salesman_id;
+
+12. 
+
+SELECT salesman.salesman_id, name, cust_name
+FROM customer RIGHT JOIN salesman
+ON customer.salesman_id = salesman.salesman_id
+ORDER BY salesman_id;
+
+13.
+
+SELECT name, cust_name, ord_no
+FROM salesman LEFT JOIN customer
+ON salesman.salesman_id = customer.salesman_id
+LEFT JOIN orders
+ON customer.customer_id = orders.customer_id;
+
+14.
+
+SELECT name, cust_name, ord_no, purch_amt, grade
+FROM salesman LEFT JOIN customer
+ON salesman.salesman_id = customer.salesman_id
+LEFT JOIN orders
+ON customer.customer_id = orders.customer_id
+WHERE purch_amt >= 2000 AND grade IS NOT NULL;
+
+INTREBARE - ??
+
+15. 
+
+SELECT cust_name, city, ord_no, ord_date, purch_amt
+FROM customer RIGHT JOIN orders
+ON customer.customer_id = orders.customer_id;
+
+INTREBARE - ??
 
 
 
