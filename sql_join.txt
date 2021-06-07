@@ -226,7 +226,6 @@ ON customer.customer_id = orders.customer_id;
 INTREBARE - ??
 
 ----------------------------------------------------
-----------------------------------------------------
 
 SUBQUERY:
 
@@ -247,6 +246,157 @@ WHERE salesman_id = (SELECT salesman_id FROM salesman WHERE city = 'London');
 SELECT * 
 FROM orders
 WHERE salesman_id = (SELECT salesman_id FROM orders WHERE customer_id = 3007);
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+SAPTAMANA 3
+
+EXERCITII JOIN: (W3RESOURCE)
+
+16.
+
+SELECT cust_name, city, ord_no, ord_date, purch_amt
+FROM customer RIGHT JOIN orders
+ON customer.customer_id = orders.customer_id
+WHERE grade IS NOT NULL;
+
+?? - Probleme la query-ul asta
+
+-----
+17.
+
+SELECT *
+FROM customer JOIN salesman;
+
+-----
+18.
+
+SELECT * 
+FROM salesman CROSS JOIN customer
+WHERE salesman.city IS NOT NULL;
+
+-----
+19.
+
+SELECT * 
+FROM salesman CROSS JOIN  customer 
+WHERE salesman.city IS NOT NULL 
+AND customer.grade IS NOT NULL;
+
+-----
+20.
+
+SELECT * 
+FROM salesman CROSS JOIN customer  
+WHERE salesman.city IS NOT NULL 
+AND customer.grade IS NOT NULL 
+AND  a.city != b.city;
+
+-----
+21.
+
+SELECT * 
+FROM item_mast JOIN company_mast
+ON item_mast.pro_com = company_mast.com_id;
+
+-----
+23.
+
+SELECT avg(pro_price), com_name
+FROM item_mast JOIN company_mast
+ON item_mast.pro_com = company_mast.com_id
+GROUP BY com_name;
+
+-----
+24.
+
+SELECT avg(pro_price), com_name
+FROM item_mast JOIN company_mast
+ON item_mast.pro_com = company_mast.com_id
+GROUP BY com_name;
+HAVING AVG(pro_price) >= 350;
+
+-----
+25. - ???
+
+-----
+26.
+
+SELECT *
+FROM emp_details JOIN emp_department
+ON emp_details.emp_dept = emp_department.dpt_code;
+
+-----
+29.
+
+SELECT dpt_name 
+FROM emp_details JOIN emp_department 
+ON emp_details.emp_dept =emp_department.dpt_code
+GROUP BY dpt_name
+HAVING COUNT(emp_idno) > 2;
+
+---------------------------------------------------
+
+EXERCITII CU SUBQUERY (W3RESOURCE):
+
+11.
+
+SELECT salesman_id, name
+FROM salesman
+WHERE (SELECT COUNT(*) FROM customer
+WHERE customer.salesman_id = salesman.salesman_id) > 1;
+
+12.
+
+SELECT *
+FROM orders ord
+WHERE purch_amt > (SELECT AVG(purch_amt) FROM orders ord2
+                   WHERE ord.customer_id = ord2.customer_id);
+
+14.
+
+???
+
+16.
+
+SELECT name
+FROM salesman s
+WHERE (SELECT COUNT(*) FROM customer c WHERE s.salesman_id = c.salesman_id) > 1;
+
+???
+
+17.
+
+SELECT name
+FROM salesman s
+WHERE (SELECT COUNT(*) FROM customer c WHERE s.salesman_id = c.salesman_id) = 1;
+
+18.
+
+SELECT name
+FROM salesman
+WHERE
+(SELECT * FROM customer     
+    WHERE salesman.salesman_id=customer.salesman_id 
+AND
+(SELECT COUNT(*) from orders WHERE c.customer_id = orders.customer_id) > 1);
+
+19.
+
+SELECT *
+FROM salesman 
+WHERE city=ANY
+    (SELECT city FROM customer);
+
+
+
+
+
+
+
+
 
 
 
