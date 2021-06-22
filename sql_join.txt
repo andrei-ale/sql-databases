@@ -1,35 +1,11 @@
-Query-uri cu join-uri
+QUERY-URI DIVERSE
+
+
+SAPTAMANA 1:
+
+EXERCITII JOIN (HACKERRANK)
 
 1.
-
-Table: Person
-
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| PersonId    | int     |
-| FirstName   | varchar |
-| LastName    | varchar |
-+-------------+---------+
-PersonId is the primary key column for this table.
-Table: Address
-
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| AddressId   | int     |
-| PersonId    | int     |
-| City        | varchar |
-| State       | varchar |
-+-------------+---------+
-AddressId is the primary key column for this table.
- 
-
-Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:
-
-FirstName, LastName, City, State
-
-Rezolvare:
 
 select FirstName, LastName, City, State
 from Person left join Address
@@ -37,16 +13,6 @@ on Person.PersonId = Address.PersonId;
 
 
 2.
-
-Enunt:
-
-Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
-
-Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
-
-
-
-Rezolvare:
 
 SELECT SUM(CITY.POPULATION) 
 FROM CITY JOIN COUNTRY
@@ -56,15 +22,6 @@ WHERE COUNTRY.CONTINENT = 'Asia';
 
 3.
 
-Enunt:
-
-Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
-
-Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
-
-
-REZOLVARE:
-
 SELECT CITY.NAME
 FROM CITY JOIN COUNTRY
 ON CITY.CountryCode = COUNTRY.Code
@@ -72,15 +29,6 @@ WHERE CONTINENT = "Africa";
 
 
 4.
-
-Enunt:
-
-Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
-
-Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
-
-
-REZOLVARE: 
 
 select COUNTRY.CONTINENT, FLOOR(AVG(CITY.Population))
 FROM COUNTRY JOIN CITY
@@ -91,19 +39,9 @@ GROUP BY COUNTRY.CONTINENT;
 
 SAPTAMANA 2:
 
+EXERCITII JOIN (HACKERRANK)
+
 1. 
-
-You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks.
-
-
-
-Grades contains the following data:
-
-
-
-Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
-
-Write a query to help Eve.
 
 REZOLVARE:
 
@@ -112,13 +50,9 @@ from students join grades
 where marks between min_mark and max_mark
 order by grade desc, name, marks;
 
-W3RESOURCE - exercitii:
+EXERCITII JOIN (W3RESOURCE)
 
 1.
-
-Write a SQL statement to prepare a list with salesman name, customer name and their cities for the salesmen and customer who belongs to the same city.
-
-REZOLVARE:
 
 SELECT NAME, CUST_NAME, SALESMAN.CITY
 FROM SALESMAN JOIN CUSTOMER
@@ -227,7 +161,7 @@ INTREBARE - ??
 
 ----------------------------------------------------
 
-SUBQUERY:
+EXERCITII SUBQUERY (W3RESOURCE)
 
 1.
 
@@ -248,8 +182,8 @@ FROM orders
 WHERE salesman_id = (SELECT salesman_id FROM orders WHERE customer_id = 3007);
 
 
------------------------------------------------------------------------------
------------------------------------------------------------------------------
+______________________________________________________________________________
+______________________________________________________________________________
 
 SAPTAMANA 3
 
@@ -339,7 +273,7 @@ HAVING COUNT(emp_idno) > 2;
 
 ---------------------------------------------------
 
-EXERCITII CU SUBQUERY (W3RESOURCE):
+EXERCITII SUBQUERY (W3RESOURCE):
 
 11.
 
@@ -389,6 +323,189 @@ SELECT *
 FROM salesman 
 WHERE city=ANY
     (SELECT city FROM customer);
+
+
+_______________________________________________________________________________
+_______________________________________________________________________________
+
+Saptamana 4:
+
+EXERCITII DIVERSE (W3RESOURCE)
+
+Soccer Database
+
+10.
+
+SELECT COUNT(*)
+FROM match_mast
+WHERE play_stage = 'R' and decided_by = 'P'
+
+11.
+
+SELECT match_no,COUNT(*)
+FROM goal_details
+GROUP BY match_no
+ORDER BY match_no;
+
+12.
+
+SELECT match_no, play_date, goal_score
+FROM match_mast
+WHERE stop1_sec = 0;
+
+13.
+
+SELECT COUNT(DISTINCT(match_no))
+FROM match_details
+WHERE play_stage = 'G' AND win_lose = 'D' and goal_score = 0;
+
+14.
+
+SELECT COUNT(*) 
+FROM match_details
+WHERE win_lose = 'W' AND goal_score = 1 AND decided_by != 'P';
+
+
+JOIN -->
+
+10.
+
+SELECT ass_ref_name, country_name
+FROM match_details JOIN asst_referee_mast
+ON ass_ref = ass_ref_id
+JOIN soccer_country
+ON soccer_country.country_id = asst_referee_mast.country_id
+WHERE match_no = 1;
+
+12.
+
+SELECT city
+FROM match_mast JOIN soccer_venue
+ON match_mast.venue_id = soccer_venue.venue_id
+JOIN soccer_city
+ON soccer_venue.city_id = soccer_city.city_id
+WHERE match_no = 1;
+
+16.
+
+SELECT country_name
+FROM soccer_team JOIN soccer_country
+ON team_id = country_id
+WHERE goal_for = 1;
+
+17.
+
+SELECT country_name, COUNT(*)
+FROM player_booked JOIN soccer_country
+ON team_id = country_id
+GROUP BY country_name
+ORDER BY COUNT(*) DESC;
+
+18.
+
+SELECT venue_name, count(venue_name)
+FROM goal_details
+JOIN match_mast ON goal_details.match_no=match_mast.match_no
+JOIN soccer_venue ON match_mast.venue_id=soccer_venue.venue_id
+GROUP BY venue_name
+ORDER BY COUNT(venue_name) DESC;
+
+
+SUBQUERY -->
+
+2.
+
+SELECT country_name
+FROM soccer_country
+WHERE country_id = (SELECT team_id FROM match_details WHERE play_stage = 'F' and win_lose = 'W');
+
+3.
+
+SELECT match_no, play_stage, goal_score, audence 
+FROM match_mast 
+WHERE audence= (SELECT max(audence) FROM match_mast);
+
+4.
+
+SELECT match_no 
+FROM match_details 
+WHERE team_id=(SELECT country_id FROM soccer_country WHERE country_name='Germany') 
+OR team_id=(SELECT country_id FROM soccer_country WHERE country_name='Poland') 
+GROUP BY match_no 
+HAVING COUNT(DISTINCT team_id)=2;
+
+5.
+
+SELECT match_no, play_stage, play_date, results, goal_score
+FROM match_mast
+WHERE match_no 
+IN(SELECT match_no FROM match_details WHERE team_id=(
+	SELECT country_id FROM soccer_country WHERE country_name='Portugal') 
+        OR team_id=(SELECT country_id FROM soccer_country WHERE country_name='Hungary') 
+GROUP BY match_no 
+HAVING COUNT(DISTINCT team_id)=2);
+
+6.
+
+SELECT match_no,country_name, player_name, COUNT(match_no)
+FROM goal_details a, soccer_country b, player_mast c
+WHERE a.team_id=b.country_id
+AND a.player_id=c.player_id
+GROUP BY match_no,country_name,player_name
+ORDER BY match_no;
+
+7.
+
+SELECT country_name
+FROM soccer_country
+WHERE country_id IN (SELECT DISTINCT(team_id) FROM goal_details WHERE match_no = (SELECT match_no FROM match_mast WHERE audence = (SELECT MAX(audence) FROM match_mast)));
+
+9.
+
+SELECT MAX(stop2_sec) 
+FROM match_mast
+WHERE stop2_sec != (SELECT MAX(stop2_sec) FROM match_mast);
+
+10.
+
+SELECT country_name 
+FROM soccer_country 
+WHERE country_id IN( SELECT team_id FROM match_details WHERE match_no IN(
+SELECT match_no FROM match_mast WHERE stop2_sec = (SELECT MAX(stop2_sec) FROM match_mast WHERE stop2_sec != (SELECT MAX(stop2_sec) 
+FROM match_mast))));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
