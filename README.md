@@ -1,2 +1,2 @@
-# depozit-exemplesql
-primul depozit creat , cu exemple sql
+# sql-databases
+primul depozit creat , cu exemple sql si proiect de creare a unei baze de date
