@@ -1,0 +1,54 @@
+[33mcommit 92919ff0f138fc6003cbedf934b714e044086b16[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 9d813b8 066b403
+Author: Andrei <andrei@example.com>
+Date:   Sun May 30 12:54:10 2021 +0300
+
+    merged and resolved
+
+[33mcommit 9d813b8e892dc1b89f75b341b40768438ec76a4a[m
+Author: Andrei <andrei@example.com>
+Date:   Sun May 30 12:44:22 2021 +0300
+
+    adaugat continut modificat
+
+[33mcommit 066b403725c9c297772a7fafe5b8602c7a7f120d[m[33m ([m[1;32mbranchfeature[m[33m)[m
+Author: Andrei <andrei@example.com>
+Date:   Sun May 30 12:39:44 2021 +0300
+
+    continut editat pentru a crea un conflict
+
+[33mcommit 4c924648e442439a0c48559b6e52b8e531f026f6[m
+Author: Andrei <andrei@example.com>
+Date:   Sun May 30 12:31:04 2021 +0300
+
+    stare initiala merge conflict
+
+[33mcommit ce2b7d3d2b2f01423aa866e6f2e8f8312225424f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Andrei <andrei@example.com>
+Date:   Thu May 27 19:13:27 2021 +0300
+
+    exemple join saptamana 2
+
+[33mcommit fed3db7d3e47d6f0e357188f582b3617c785e460[m
+Author: Andrei <andrei@example.com>
+Date:   Mon May 24 16:57:04 2021 +0300
+
+    adaugat fisier cu joinuri
+
+[33mcommit a6290755541e2a6a3e03a431e6cfac187d8a7b52[m
+Author: Andrei <andrei@example.com>
+Date:   Tue May 18 17:26:45 2021 +0300
+
+    adaugare exemple sql
+
+[33mcommit cc8232f152aa597897eb386be787f4c8af015698[m
+Author: Andrei <andrei@example.com>
+Date:   Tue May 18 16:37:49 2021 +0300
+
+    prima modificare
+
+[33mcommit 5be6aeb0dc724edb3c350748c115b6298c5a70a5[m
+Author: aandrei10000 <83961230+aandrei10000@users.noreply.github.com>
+Date:   Tue May 18 12:27:49 2021 +0300
+
+    Initial commit

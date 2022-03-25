@@ -1,3 +1,66 @@
+Exercitii Hackerrank
+
+1.
+
+SELECT *
+FROM CITY
+WHERE COUNTRYCODE = 'USA' AND POPULATION > 100000;
+
+2.
+
+SELECT NAME
+FROM CITY
+WHERE COUNTRYCODE = 'USA' AND POPULATION > 120000;
+
+3.
+
+select *
+from CITY
+
+4.
+
+SELECT *
+FROM CITY
+WHERE ID = 1661
+
+5.
+
+select *
+from CITY
+where COUNTRYCODE = "JPN";
+
+6.
+
+select name
+from CITY
+where countrycode = "JPN"
+
+7.
+
+select CITY, STATE
+from STATION
+
+8.
+
+select distinct(CITY)
+from STATION
+where (ID%2) = 0
+
+9.
+
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+
+10.
+
+select city, length(city) from station
+order by length(city),city asc
+limit 1;
+select city, length(city) from station
+order by length(city) desc
+limit 1;
+
+
+
 QUERY-URI DIVERSE
 
 
@@ -58,10 +121,6 @@ SELECT NAME, CUST_NAME, SALESMAN.CITY
 FROM SALESMAN JOIN CUSTOMER
 ON SALESMAN.SALESMAN_ID = CUSTOMER.SALESMAN_ID
 WHERE SALESMAN.CITY = CUSTOMER.CITY;
-
-(NU AM INTELES CEVA)!
-
-
 
 2.
 
@@ -149,15 +208,12 @@ LEFT JOIN orders
 ON customer.customer_id = orders.customer_id
 WHERE purch_amt >= 2000 AND grade IS NOT NULL;
 
-INTREBARE - ??
 
 15. 
 
 SELECT cust_name, city, ord_no, ord_date, purch_amt
 FROM customer RIGHT JOIN orders
 ON customer.customer_id = orders.customer_id;
-
-INTREBARE - ??
 
 ----------------------------------------------------
 
@@ -195,8 +251,6 @@ SELECT cust_name, city, ord_no, ord_date, purch_amt
 FROM customer RIGHT JOIN orders
 ON customer.customer_id = orders.customer_id
 WHERE grade IS NOT NULL;
-
-?? - Probleme la query-ul asta
 
 -----
 17.
@@ -253,7 +307,7 @@ GROUP BY com_name;
 HAVING AVG(pro_price) >= 350;
 
 -----
-25. - ???
+25. 
 
 -----
 26.
@@ -289,9 +343,6 @@ FROM orders ord
 WHERE purch_amt > (SELECT AVG(purch_amt) FROM orders ord2
                    WHERE ord.customer_id = ord2.customer_id);
 
-14.
-
-???
 
 16.
 
@@ -299,7 +350,6 @@ SELECT name
 FROM salesman s
 WHERE (SELECT COUNT(*) FROM customer c WHERE s.salesman_id = c.salesman_id) > 1;
 
-???
 
 17.
 
